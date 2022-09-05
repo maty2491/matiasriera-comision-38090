@@ -1,16 +1,16 @@
 import React from 'react'
-import CartWidget from '@mui/icons-material/LocalMall'
+import Carrito from '@mui/icons-material/LocalMall'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button'
 
-const Carro = () =>{
+const CartWidget = () =>{
     return(
     <>
     
     <Button variant='null'>
-        <CartWidget sx={{ 
+        <Carrito sx={{ 
 
-            fontSize: 30,
+            fontSize: 33,
             color:"#fff",
                               
             }}
@@ -20,4 +20,4 @@ const Carro = () =>{
     )
 }
 
-export default Carro
+export default CartWidget

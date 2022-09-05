@@ -1,9 +1,10 @@
 import React from "react"
 
-const Mensaje = ()=>{
+const ItemsListContainer = ({ greeting }) => {
+
     return(
-        <h1 className="text-center mt-5">Bienvenido a la tienda oficial de Comics BOOM!</h1>
+        <h1 className="text-center mt-5">{ greeting }</h1>
     )
 }
 
-export default Mensaje
+export default ItemsListContainer

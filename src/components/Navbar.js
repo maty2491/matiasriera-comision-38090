@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from '../../assets/logo.png'
-import  Carro  from '../navbar/CartWidget'
+import logo from '../assets/logo.png'
+import CartWidget  from './CartWidget'
 
 const NavBar = () => {
     return(
@@ -19,12 +19,11 @@ const NavBar = () => {
         <a className="nav-link" href="#">MARVEL COMICS</a>
         <a className="nav-link" href="#">DC COMICS</a>
         <a className="nav-link" href="#">NOSOTROS</a>
-        <Carro />
+        <CartWidget />
       </div>
     </div>
   </div>
 </nav>
-
         
 </>
      )

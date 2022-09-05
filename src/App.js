@@ -1,5 +1,5 @@
-import React from "react";
-import NavBar from './components/navbar/Navbar'
+import React from "react"
+import NavBar from './components/Navbar'
 import ItemsListContainer from './components/ItemsListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -8,7 +8,7 @@ const App = () =>{
   return (
     <>
    <NavBar />
-   <ItemsListContainer greeting="Mensaje"/>
+   <ItemsListContainer greeting="¡Bienvenido a la tienda de COMICS online BOOM!"/>
    </>
   )
 }
