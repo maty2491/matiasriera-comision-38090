@@ -10,3 +10,18 @@ Todo Componente puede tener
     - states
     - Ciclo de vida
     - Metodos del ciclo de vida
+
+Ciclo de vida y Metodos
+
+    - mount
+        -constructor
+        -render
+        -componentDidMount
+    
+    - update
+        -constructor
+        -render
+        -componentDidUpdate
+
+    - unmount
+        -componentWillUnmount
