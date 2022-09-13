@@ -8,7 +8,7 @@ export const products = [
         Category: "comic",
         description: "There's somebody else out there who knows what it means to suffer - to feel sickened by the pain and suffering they've inflicted on the world - and his name is Logan. After the motorcycle rally at Hell's Backbone, Wolverine and Johnny Blaze are brought together, but will they race forward as enemies or allies in the war against the shadow country?",
         price: 10,
-        stock: 15
+        stock: 10
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ export const products = [
         Category: "comic",
         description: "THE 30TH ANNIVERSARY OF 2099 REACHES ITS EXPLOSIVE CONCLUSION! The final battle for the Celestial Garden begins! Spider-Man vs. Norman Osborn! The X-Men vs. the Cabal! Two armies, two deadly enemies…and the keys to 2099’s future up for grabs! It’s a brawl for all: A brave new tomorrow for 2099 starts here!",
         price: 10,
-        stock: 15
+        stock: 8
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ export const products = [
         Category: "comic",
         description: "WILL THE PUNISHER’S WAR END? Born of tragedy. Devoted to war. Unstoppable in his rage. As the Punisher, Frank Castle has become the most accomplished killer the world has ever seen. Now it’s time for him to face his true destiny. What shocking secret from Frank’s past will convince him to take the reins of the Marvel Universe’s most notorious clan of assassins? And once Frank becomes the warlord of the deadly ninjas of the Hand, will it also mean an end for the Punisher? Or a whole new bloody beginning? Join the superstar team of writer Jason Aaron and artists Jesús Saiz and Paul Azaceta for an epic exploration of the dark and violent past and inevitable future of one of Marvel’s most iconic characters.",
         price: 10,
-        stock: 15
+        stock: 9
     },
     {
         id: 4,
@@ -35,7 +35,7 @@ export const products = [
         Category: "comic",
         description: "Introducing: the all-new Avengers series that starts in the middle of the explosive action and races to a shocking climax! An alien attack. A missing piece of wormhole tech. A city warped, its citizens transformed into hideous creatures loyal to an Empress from the far side of the universe. And a certain Captain Marvel, looking to her fellow Avengers with murderous intent...Plunge into the action and take a deep breath because you will not be allowed up for air as a thrilling new series kicks off in the strongest, strangest way possible.",
         price: 10,
-        stock: 15
+        stock: 20
     },
     {
         id: 5,

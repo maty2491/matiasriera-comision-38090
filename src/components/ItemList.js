@@ -1,8 +1,14 @@
-export const customFetch = (products) => {
-    return new Promise((resolve, rejeact) =>{
-        setTimeout(() => {
-            resolve(products)
-        }, 2000)
+ import {Item} from '../components/Item'
+
+const ItemList = ({listProducts}) => {
+    
+    return(
         
-    })
+        <>
+            {listProducts.map((prod, i) => <Item key={`${prod.product}-${i}`} product={prod} />)}
+        
+        </>
+    )
 }
+
+export { ItemList }
