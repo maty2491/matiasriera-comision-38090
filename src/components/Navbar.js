@@ -14,8 +14,8 @@ const NavBar = () => {
           </button>
           <div className="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link active" aria-current="page" href="#">INICIO</a>
-              <a className="nav-link" href="#">MARVEL COMICS</a>
+              <a className="nav-link" aria-current="page" href="#">INICIO</a>
+              <a className="nav-link active" href="#">MARVEL COMICS</a>
               <a className="nav-link" href="#">DC COMICS</a>
               <a className="nav-link" href="#">NOSOTROS</a>
               <CartWidget />
