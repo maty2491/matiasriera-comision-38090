@@ -8,6 +8,10 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   const increase = () => count < stock && setCount(count + 1)
   const decrease = () => count > initial && setCount(count - 1)
 
+  function onAdd() {
+    alert("Se agregaron " + count + " productos al carro")
+  }
+
   return (
     <>
       <div className="container">

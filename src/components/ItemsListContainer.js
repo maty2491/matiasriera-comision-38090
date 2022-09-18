@@ -1,8 +1,5 @@
 import React from "react"
-import { Text } from "@chakra-ui/react"
-
-// Desafio anterior - import ItemCount from "./ItemCount"
-
+import ItemCount from "./ItemCount"
 import { ItemList } from '../components/ItemList'
 import { useState, useEffect } from "react"
 import { products } from "../assets/products"
@@ -18,9 +15,7 @@ const ItemsListContainer = ({ greeting }) => {
   return (
     <>
       <h1 className="text-center mt-5">{greeting}</h1>
-
-{/*  Desafio anterior -   <ItemCount initial={1} stock={10} onAdd={(onAdd) => {}} /> */}
-      
+      <ItemCount initial={1} stock={10} onAdd={(onAdd) => {}} />
       <div className="container-fluid mt-4">
        <div className="row d-flex justify-content-evenly">
           <ItemList listProducts={listProducts} />

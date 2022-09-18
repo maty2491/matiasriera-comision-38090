@@ -8,7 +8,7 @@ const NavBar = () => {
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container-fluid text-center d-block mx-auto">
           <a className="navbar-brand " href="#">
-            <img src={logo} alt="Tienda-de-comics" width="140" height="auto" class="img-fluid" /></a>
+            <img src={logo} alt="Tienda-de-comics" width="140" height="auto" className="img-fluid" /></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
