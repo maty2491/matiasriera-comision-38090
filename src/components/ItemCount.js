@@ -1,6 +1,6 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
-import com1 from "../assets/wolverine.jpg"
+import com1 from '../assets/wolverine.jpg'
 import { useState } from "react"
 
 const ItemCount = ({ initial, stock, onAdd }) => {

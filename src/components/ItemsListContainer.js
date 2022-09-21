@@ -3,6 +3,7 @@ import { ItemList } from '../components/ItemList'
 import { useState, useEffect } from "react"
 import { products } from "../assets/products"
 import { customFetch } from "../components/utils/CustomFetch"
+import ItemCount from "./ItemCount"
 
 const ItemsListContainer = ({ greeting }) => {
   const [listProducts, setListProducts] = useState([]);
@@ -14,8 +15,10 @@ const ItemsListContainer = ({ greeting }) => {
   return (
     <>
       <h1 className="text-center mt-5">{greeting}</h1>
+      <ItemCount initial={1} stock={10} onAdd={(onAdd) => { }} />
        <div className="container-fluid mt-4">
        <div className="row d-flex justify-content-evenly">
+          <ItemCount initial={1} stock={10} onAdd={(onAdd) => { }} />
           <ItemList listProducts={listProducts} />
         </div>
       </div>
