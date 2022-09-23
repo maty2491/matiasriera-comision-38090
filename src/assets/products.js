@@ -1,4 +1,3 @@
-import { Category } from "@mui/icons-material";
 
 export const products = [
     {

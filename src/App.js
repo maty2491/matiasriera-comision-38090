@@ -1,9 +1,10 @@
 import React from "react"
 import NavBar from './components/Navbar'
 import ItemsListContainer from './components/ItemsListContainer'
-import ItemCount from './components/ItemCount'
+import ItemDetailContainer from './components/ItemDetailContainer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter } from 'react-router-dom'
+
 
 const App = () =>{
 
@@ -14,6 +15,7 @@ const App = () =>{
       <BrowserRouter>
          <NavBar />
          <ItemsListContainer greeting="¡Bienvenido a la tienda de COMICS online BOOM!"/>
+         <ItemDetailContainer />
       </BrowserRouter>
    </>
   )
