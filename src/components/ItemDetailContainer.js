@@ -1,33 +1,27 @@
 import React, { useState, useEffect } from "react"
 import ItemDetail from "./ItemDetail"
+import { customFetch } from "./utils/CustomFetch"
+import { products } from '../assets/products'
+import { useParams } from "react-router-dom"
 
-const ItemsListContainer = ({ greeting }) => {
-
-    const [producto, setProducto] = useState([])
-    
+const ItemDetailContainer = ({ mensaje }) => {
+    const [producto, setListProducts] = useState({})
+    const { id } = useParams()
+    console.log(id);
     useEffect(() => {
-        
-        const getItem = async() => {
-            try {                
-                const respuesta = await fetch('http://localhost:5000/marvel/1')
-                const data = await respuesta.json() 
-                setProducto(data)
-            } catch(err) {
-                console.log("Error: ".err);
-            }
-        }
-    
-    getItem()
-        
-    }, [])
-
+        customFetch(products, 100, parseInt(id)).then((res) => setListProducts(res))
+    }, [id])
     return (
         <>
-          <ItemDetail producto={producto}/>
+            <div className="container">
+                <h1 className="text-center mt-4">{mensaje}</h1>
+                <hr></hr>
+                <ItemDetail producto={producto} />
+            </div>
         </>
     )
 }
 
-export default ItemsListContainer
+export default ItemDetailContainer
 
 

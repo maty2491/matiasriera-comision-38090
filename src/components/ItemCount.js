@@ -8,8 +8,8 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   const increase = () => count < stock && setCount(count + 1)
   const decrease = () => count > initial && setCount(count - 1)
 
-  function onAdd() {
-    alert("Se agregaron " + count + " productos al carro")
+  function noStock(){
+    alert ("No hay stock")
   }
 
   return (
@@ -27,7 +27,13 @@ const ItemCount = ({ initial, stock, onAdd }) => {
               </div>
             </div>
             <div className="card-footer bg-transparent">
-              <button type="button" onClick={onAdd} className="btn btn-success">Agregar al carro</button>
+              <button type="button" onClick={()=>{
+                if(stock>0){
+                  onAdd(count)
+                }else{
+                  noStock()
+                }
+              }} className="btn btn-success">Agregar al carro</button>
             </div>
           </div>
         </div>
