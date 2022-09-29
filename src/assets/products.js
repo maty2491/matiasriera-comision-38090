@@ -71,7 +71,7 @@ export const products = [
         "category": "comic-dc",
         "description": "A Nightwing and Wally West story, part 1 of 2! When it’s easier to go buy bagels as Nightwing than as Dick Grayson because everyone is either trying to get him for his money or kill him for the price on his head, Nightwing realizes he’ll need to enlist the help of his Teen Titan friends as his bodyguards, and the first to volunteer is of course his best friend…Wally West, a.k.a. the Flash!",
         "price": 10,
-        "stock": 10
+        "stock": 4
     },
     {
         "id": 9,
@@ -80,7 +80,7 @@ export const products = [
         "category": "comic-dc",
         "description": "Justice League Dark crossover conclusion! Another full double-size issue crossover spectacular as Xanadoth, the original Lord of Chaos, has returned. With unlimited power and revenge against all on its mind, the Lord of chaos has taken the form of Black Adam and no. One. Is. Safe. The final chapter of the Eisner-winning Bendis Justice League run wraps up with brand-new status quo for all!",
         "price": 10,
-        "stock": 10
+        "stock": 15
     },
     {
         "id": 10,
@@ -89,7 +89,7 @@ export const products = [
         "category": "comic-dc",
         "description": "Batman acts on his suspicions of a newly elected political figure in Gotham City and finds himself literally in deep water. Meanwhile, Two-Face fights his way back from the brink of death to find an unlikely ally who will show him that there are two sides to every story. 'Pieces' part 2.",
         "price": 10,
-        "stock": 10
+        "stock": 8
     }
 
 

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { products } from "../assets/products"
 import { customFetch } from "../components/utils/CustomFetch"
 import { useParams } from "react-router-dom"
-import ItemCount from "./ItemCount"
 
 const ItemsListContainer = ({ greeting }) => {
   const [listProducts, setListProducts] = useState([]);
@@ -13,14 +12,6 @@ const ItemsListContainer = ({ greeting }) => {
   useEffect(() => {
     customFetch(products, 100, idCat, 'category').then((res) => setListProducts(res))
   }, [idCat])
-
-  function onAdd(count) {
-    console.log(count);
-    if (count !== 1) {
-      alert("Se agregaron " + count + " productos al carro")
-
-    } 
-  }
 
   return (
     <>
