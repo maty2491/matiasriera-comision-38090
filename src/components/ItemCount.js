@@ -10,7 +10,6 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   function noStock() {
     alert("No hay stock")
   }
-
   return (
     <>
       <button type="button" disabled={count === initial} onClick={decrease} className="btn btn-secondary mb-3 ">-</button>

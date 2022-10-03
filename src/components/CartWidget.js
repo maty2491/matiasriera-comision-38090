@@ -1,4 +1,3 @@
-import React from "react"
 import Carrito from "@mui/icons-material/LocalMall"
 import Button from "react-bootstrap/Button"
 

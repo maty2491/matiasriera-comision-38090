@@ -27,8 +27,6 @@ const ItemsListContainer = ({ greeting }) => {
   )
 }
 
-
-
 export default ItemsListContainer
 
 

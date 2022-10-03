@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'react-router-dom'
+import React from 'react'
 
 const Item = ({ product }) => {
+
     return (
         <>
             <div className="col-md-3 m-3 shadow-lg border-light card text-center align-items-center">

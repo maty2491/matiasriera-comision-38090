@@ -2,11 +2,14 @@ import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ItemCount from "./ItemCount"
 import { Link } from 'react-router-dom'
+import { useCartContext } from '../context/CartContext'
 
 const ItemDetail = ({ producto }) => {
-    const [irCarro, setIrCarro] = useState(false)
+    const [goCart, setGoCart] = useState(false)
+    const { addItem } = useCartContext()
     const onAdd = (count) => {
-        setIrCarro(true)
+        setGoCart(true)
+        addItem(producto, count)
     }
     return (
         <>
@@ -20,7 +23,7 @@ const ItemDetail = ({ producto }) => {
                         <p>{producto.description}</p>
                         <h5> Precio ${producto.price}</h5>
                         {
-                            irCarro
+                            goCart
                                 ? <Link to='/cart'><button className='btn btn-success'>Finalizar compra</button></Link>
                                 : <ItemCount initial={1} stock={producto.stock} onAdd={onAdd} />
                         }
