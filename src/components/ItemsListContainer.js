@@ -12,7 +12,7 @@ const ItemsListContainer = ({ greeting }) => {
   useEffect(() => {
     customFetch(products, 100, idCat, 'category').then((res) => setListProducts(res))
   }, [idCat])
-
+  
   return (
     <>
       <div className="container">

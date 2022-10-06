@@ -1,17 +1,13 @@
 import Carrito from "@mui/icons-material/LocalMall"
-import Button from "react-bootstrap/Button"
+import { Link } from "react-router-dom"
+import { useCartContext } from "../context/CartContext"
 
 const CartWidget = () => {
+  const { totalProducts } = useCartContext()
   return (
     <>
-      <Button variant="null">
-        <Carrito
-          sx={{
-            fontSize: 33,
-            color: "#ffff",
-          }}
-        />
-      </Button>
+      <Carrito sx={{ fontSize: 33, color: "#ffff", }} />
+      <Link style={{ textDecoration: 'transparent', color: 'white' }}>{totalProducts() || ''}</Link>
     </>
   )
 }
