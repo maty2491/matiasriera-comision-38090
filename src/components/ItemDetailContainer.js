@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react"
 import ItemDetail from "./ItemDetail"
-import { customFetch } from "./utils/CustomFetch"
-import { products } from '../assets/products'
 import { useParams } from "react-router-dom"
-
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = ({ mensaje }) => {
     const [producto, setListProducts] = useState({})
     const { id } = useParams()
     useEffect(() => {
-        customFetch(products, 100, parseInt(id)).then((res) => setListProducts(res))
+        const querydb = getFirestore()
+        const queryDoc = doc(querydb, 'products', id)
+        getDoc(queryDoc)
+            .then(res => setListProducts({id: res.id, ...res.data()}))
     }, [id])
     return (
         <>
