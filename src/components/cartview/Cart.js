@@ -6,22 +6,22 @@ import { addDoc, collection, getFirestore } from "firebase/firestore"
 import { useState } from 'react'
 
 const Cart = () => {
+
   const { cart, totalPrice } = useCartContext()
-  const buyer =({    
+
+  const [datos, setDatos] = useState({
     name: '',
     lastname: '',
     email: '',
     phone: '',
     address: '',
     country: '',
-    zip: '',    
+    zip: '',
     items: cart.map(product => ({ id: product.id, product: product.product, price: product.price, count: product.count })),
-    total: totalPrice(),    
+    total: totalPrice(),
   })
 
-  const [datos, setDatos] = useState(buyer)
-
-  const handleClick1 = (e) => {
+  const handleClick = (e) => {
     setDatos({
       ...datos, [e.target.name]: e.target.value
     })
@@ -31,8 +31,7 @@ const Cart = () => {
     e.preventDefault()
     const db = getFirestore()
     const orderCollection = collection(db, 'orders')
-    addDoc(orderCollection, buyer)
-      .then(({ id }) => console.log(id));
+    addDoc(orderCollection, datos)      
   }
 
   if (cart.length === 0) {
@@ -51,7 +50,7 @@ const Cart = () => {
   }
   return (
     <>
-      <div className="container mt-5">
+      <div className="container mt-5" tabIndex="0">
         <div className="row">
           <div className="col">
             <h1 className="text-center mb-5">Carrito de compras</h1>
@@ -76,48 +75,48 @@ const Cart = () => {
                   <th></th>
                   <th></th>
                   <th>$ {totalPrice()}</th>
-                  <th><button type='button' className='btn btn-success' data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button></th>
-                  <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h1 className="modal-title fs-5" id="staticBackdropLabel">Detalles del usuario</h1>
-                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form onSubmit={sendData}>
-                          <div className="modal-body">
-                            <div className="col mb-3">
-                              <input type="text" className='form-control' placeholder="Nombre" name="name" onChange={handleClick1} />
-                            </div>
-                            <div className="col mb-3">
-                              <input type="text" className='form-control' placeholder="Apellido" name="lastname" onChange={handleClick1} />
-                            </div>
-                            <div className="col mb-3">
-                              <input type="email" className='form-control' placeholder="Email" name='email' onChange={handleClick1} />
-                            </div>
-                            <div className="col mb-3">
-                              <input type="number" className='form-control' placeholder="Teléfono" name='phone' onChange={handleClick1} />
-                            </div>
-                            <div className="col mb-3">
-                              <input type="text" className='form-control' placeholder="Domicilio" name='address' onChange={handleClick1} />
-                            </div>
-                            <div className="col mb-3">
-                              <input type="text" className='form-control' placeholder="País" name='country' onChange={handleClick1} />
-                            </div>
-                            <div className="col-md-4 mb-3">
-                              <input type="number" className='form-control' placeholder="Código Postal" name='zip' onChange={handleClick1} />
-                            </div>
+                  <th><button type='button' className='btn btn-success' data-bs-toggle="modal" data-bs-target="#myModal">Comprar</button></th>
+                </tr>
+                <div className="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="myModal" aria-hidden="true">
+                  <div className="modal-dialog">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h1 className="modal-title fs-5" id="myModal">Detalles del usuario</h1>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+
+                      <form onSubmit={sendData}>
+                        <div className="modal-body">
+                          <div className="col mb-3">
+                            <input type="text" className='form-control' placeholder="Nombre" name="name" onChange={handleClick} required/>
                           </div>
-                        </form>
+                          <div className="col mb-3">
+                            <input type="text" className='form-control' placeholder="Apellido" name="lastname" onChange={handleClick} required />
+                          </div>
+                          <div className="col mb-3">
+                            <input type="email" className='form-control' placeholder="Email" name='email' onChange={handleClick} required />
+                          </div>
+                          <div className="col mb-3">
+                            <input type="number" className='form-control' placeholder="Teléfono" name='phone' onChange={handleClick} required />
+                          </div>
+                          <div className="col mb-3">
+                            <input type="text" className='form-control' placeholder="Domicilio" name='address' onChange={handleClick} required />
+                          </div>
+                          <div className="col mb-3">
+                            <input type="text" className='form-control' placeholder="País" name='country' onChange={handleClick} required />
+                          </div>
+                          <div className="col-md-4 mb-3">
+                            <input type="number" className='form-control' placeholder="Código Postal" name='zip' onChange={handleClick} required />
+                          </div>
+                        </div>
                         <div className="modal-footer">
                           <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                          <button type="submit" onClick={sendData} className="btn btn-success" >Finalizar Compra</button>
+                          <button type="submit" onClick={() => console.log("Hola")} className="btn btn-success">Finalizar Compra</button>
                         </div>
-                      </div>
+                      </form>
                     </div>
                   </div>
-                </tr>
-
+                </div>
               </tbody>
             </table>
           </div>
