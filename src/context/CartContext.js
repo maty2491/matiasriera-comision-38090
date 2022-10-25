@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import swal from 'sweetalert'
 
 const CartContext = React.createContext([])
 export const useCartContext = () => useContext(CartContext)
@@ -14,8 +15,8 @@ const CartProvider = ({ children }) => {
             setCart([...cart, { ...item, count }])
         }
     }
-    
-    const totalPrice = () =>{
+
+    const totalPrice = () => {
         return cart.reduce((prev, actu) => prev + actu.count * actu.price, 0)
     }
 
@@ -23,8 +24,19 @@ const CartProvider = ({ children }) => {
 
     const clear = () => setCart([])
     const isInCart = (id) => cart.find(product => product.id === id) ? true : false
-    const removeItem = (id) => setCart(cart.filter(product => product.id !== id))
-
+    const removeItem = (id) => {
+        swal({
+            title: "Eliminar producto",
+            text: "¿Desea eliminar el producto?",
+            icon: "warning",
+            buttons: ["No", "Si"]
+        }).then(res => {
+            if (res){
+                setCart(cart.filter(product => product.id !== id))
+                swal({text: "Se borro el producto", icon: "success", timer: "2000"})
+            }
+        })
+    }
     return (
         <CartContext.Provider value={{
             clear,

@@ -3,7 +3,6 @@ import { useCartContext } from "../../context/CartContext"
 
 const ItemCart = ({ product }) => {
     const { removeItem } = useCartContext()
-
     return (
         <>
             <tr>

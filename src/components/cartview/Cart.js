@@ -4,10 +4,19 @@ import { useCartContext } from '../../context/CartContext'
 import ItemCart from './ItemCart'
 import { addDoc, collection, getFirestore } from "firebase/firestore"
 import { useState } from 'react'
+import swal from 'sweetalert'
 
 const Cart = () => {
 
-  const { cart, totalPrice } = useCartContext()
+  const viewAlert=()=>{
+    swal({
+      title: "Compra finalizada",
+      text: "Gracias por confiar en nosotros, su compra ha sido ingresada",
+      icon: "success",
+      timer: "3000"
+    })
+  }
+  const { cart, totalPrice, clear } = useCartContext()
 
   const [datos, setDatos] = useState({
     name: '',
@@ -31,7 +40,8 @@ const Cart = () => {
     e.preventDefault()
     const db = getFirestore()
     const orderCollection = collection(db, 'orders')
-    addDoc(orderCollection, datos)      
+    addDoc(orderCollection, datos)
+    clear()
   }
 
   if (cart.length === 0) {
@@ -77,14 +87,15 @@ const Cart = () => {
                   <th>$ {totalPrice()}</th>
                   <th><button type='button' className='btn btn-success' data-bs-toggle="modal" data-bs-target="#myModal">Comprar</button></th>
                 </tr>
+              </tbody>
+            </table>
                 <div className="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="myModal" aria-hidden="true">
                   <div className="modal-dialog">
                     <div className="modal-content">
                       <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="myModal">Detalles del usuario</h1>
+                        <h1 className="modal-title fs-5">Detalles del usuario</h1>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-
                       <form onSubmit={sendData}>
                         <div className="modal-body">
                           <div className="col mb-3">
@@ -111,14 +122,12 @@ const Cart = () => {
                         </div>
                         <div className="modal-footer">
                           <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                          <button type="submit" onClick={() => console.log("Hola")} className="btn btn-success">Finalizar Compra</button>
+                      <button type="submit" onClick={() => viewAlert()} className="btn btn-success" data-bs-dismiss="modal">Finalizar Compra</button>
                         </div>
                       </form>
                     </div>
                   </div>
                 </div>
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
