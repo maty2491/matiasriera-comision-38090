@@ -12,7 +12,6 @@ import RingLoader from "react-spinners/RingLoader";
 
 const App = () => {
   const [loading, setLoading] = useState(false)
-
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
@@ -27,10 +26,10 @@ const App = () => {
           <div className="App">
             {
               loading ?
-                ( <div style={{ width: "100%", height: "60vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <RingLoader color={"#f29f11"} loading={loading} size={120}  />
+                (<div style={{ width: "100%", height: "60vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <RingLoader color={"#f29f11"} loading={loading} size={120} />
                 </div>
-                ) : 
+                ) :
                 <>
                   <Routes>
                     <Route path="/" element={< ItemsListContainer greeting="¡Bienvenido a la tienda de COMICS online BOOM!" />} />

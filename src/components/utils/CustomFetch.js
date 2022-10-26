@@ -10,9 +10,7 @@ export const customFetch = (products, stallTime = 0, id, field = 'id') => {
             } else {
               prod = products.filter((comic) => comic[field] === id)
             }
-
             resolve(prod)
-
           } else {
             resolve(products)
           }

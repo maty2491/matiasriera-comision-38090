@@ -5,7 +5,6 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import RingLoader from "react-spinners/RingLoader";
 
 const ItemDetailContainer = ({ mensaje }) => {
-
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)

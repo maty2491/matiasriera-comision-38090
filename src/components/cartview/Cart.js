@@ -7,17 +7,15 @@ import { useState } from 'react'
 import swal from 'sweetalert'
 
 const Cart = () => {
-
-  const viewAlert=()=>{
+  const viewAlert = () => {
     swal({
       title: "Compra finalizada",
       text: "Gracias por confiar en nosotros, su compra ha sido ingresada",
       icon: "success",
-      timer: "3000"
+      timer: "4000"
     })
   }
   const { cart, totalPrice, clear } = useCartContext()
-
   const [datos, setDatos] = useState({
     name: '',
     lastname: '',
@@ -29,13 +27,11 @@ const Cart = () => {
     items: cart.map(product => ({ id: product.id, product: product.product, price: product.price, count: product.count })),
     total: totalPrice(),
   })
-
   const handleClick = (e) => {
     setDatos({
       ...datos, [e.target.name]: e.target.value
     })
   }
-
   const sendData = (e) => {
     e.preventDefault()
     const db = getFirestore()
@@ -43,7 +39,6 @@ const Cart = () => {
     addDoc(orderCollection, datos)
     clear()
   }
-
   if (cart.length === 0) {
     return (
       <>
@@ -89,45 +84,45 @@ const Cart = () => {
                 </tr>
               </tbody>
             </table>
-                <div className="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="myModal" aria-hidden="true">
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h1 className="modal-title fs-5">Detalles del usuario</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <form onSubmit={sendData}>
-                        <div className="modal-body">
-                          <div className="col mb-3">
-                            <input type="text" className='form-control' placeholder="Nombre" name="name" onChange={handleClick} required/>
-                          </div>
-                          <div className="col mb-3">
-                            <input type="text" className='form-control' placeholder="Apellido" name="lastname" onChange={handleClick} required />
-                          </div>
-                          <div className="col mb-3">
-                            <input type="email" className='form-control' placeholder="Email" name='email' onChange={handleClick} required />
-                          </div>
-                          <div className="col mb-3">
-                            <input type="number" className='form-control' placeholder="Teléfono" name='phone' onChange={handleClick} required />
-                          </div>
-                          <div className="col mb-3">
-                            <input type="text" className='form-control' placeholder="Domicilio" name='address' onChange={handleClick} required />
-                          </div>
-                          <div className="col mb-3">
-                            <input type="text" className='form-control' placeholder="País" name='country' onChange={handleClick} required />
-                          </div>
-                          <div className="col-md-4 mb-3">
-                            <input type="number" className='form-control' placeholder="Código Postal" name='zip' onChange={handleClick} required />
-                          </div>
-                        </div>
-                        <div className="modal-footer">
-                          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      <button type="submit" onClick={() => viewAlert()} className="btn btn-success" data-bs-dismiss="modal">Finalizar Compra</button>
-                        </div>
-                      </form>
-                    </div>
+            <div className="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="myModal" aria-hidden="true">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h1 className="modal-title fs-5">Detalles del usuario</h1>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
+                  <form onSubmit={sendData}>
+                    <div className="modal-body">
+                      <div className="col mb-3">
+                        <input type="text" className='form-control' placeholder="Nombre" name="name" onChange={handleClick} required />
+                      </div>
+                      <div className="col mb-3">
+                        <input type="text" className='form-control' placeholder="Apellido" name="lastname" onChange={handleClick} required />
+                      </div>
+                      <div className="col mb-3">
+                        <input type="email" className='form-control' placeholder="Email" name='email' onChange={handleClick} required />
+                      </div>
+                      <div className="col mb-3">
+                        <input type="number" className='form-control' placeholder="Teléfono" name='phone' onChange={handleClick} required />
+                      </div>
+                      <div className="col mb-3">
+                        <input type="text" className='form-control' placeholder="Domicilio" name='address' onChange={handleClick} required />
+                      </div>
+                      <div className="col mb-3">
+                        <input type="text" className='form-control' placeholder="País" name='country' onChange={handleClick} required />
+                      </div>
+                      <div className="col-md-4 mb-3">
+                        <input type="number" className='form-control' placeholder="Código Postal" name='zip' onChange={handleClick} required />
+                      </div>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="submit" onClick={() => viewAlert()} className="btn btn-success" data-bs-dismiss="modal">Finalizar Compra</button>
+                    </div>
+                  </form>
                 </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

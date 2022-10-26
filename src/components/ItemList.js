@@ -1,8 +1,7 @@
- import {Item} from '../components/Item'
+import { Item } from '../components/Item'
 
-const ItemList = ({listProducts}) => {
-    
-    return(        
+const ItemList = ({ listProducts }) => {
+    return (
         <>
             {listProducts.map((prod, i) => <Item key={`${prod.product}-${i}`} product={prod} />)}
         </>

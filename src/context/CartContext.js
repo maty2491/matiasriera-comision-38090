@@ -31,9 +31,9 @@ const CartProvider = ({ children }) => {
             icon: "warning",
             buttons: ["No", "Si"]
         }).then(res => {
-            if (res){
+            if (res) {
                 setCart(cart.filter(product => product.id !== id))
-                swal({text: "Se borro el producto", icon: "success", timer: "2000"})
+                swal({ text: "Se borro el producto", icon: "success", timer: "2000" })
             }
         })
     }
