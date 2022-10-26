@@ -17,7 +17,7 @@ const App = () => {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 3000)
+    }, 2000)
   }, [])
   return (
     <>
@@ -25,19 +25,21 @@ const App = () => {
         <CartProvider>
           <NavBar />
           <div className="App">
-          {
-            loading ?
-                <RingLoader className="App" height={"100hv"} color={"#f29f11"} loading={loading} size={120}/>
-              :
-              <>
-                <Routes>
-                  <Route path="/" element={< ItemsListContainer greeting="¡Bienvenido a la tienda de COMICS online BOOM!" />} />
-                  <Route path="/category/:idCat" element={< ItemsListContainer greeting="¡Bienvenido a la tienda de COMICS online BOOM!" />} />
-                  <Route path="/item/:id" element={<ItemDetailContainer mensaje="Detalles del producto" initial="1" stock="10" />} />
-                  <Route path="/cart" element={<Cart />} />
-                </Routes>
-              </>
-          }
+            {
+              loading ?
+                ( <div style={{ width: "100%", height: "60vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <RingLoader color={"#f29f11"} loading={loading} size={120}  />
+                </div>
+                ) : 
+                <>
+                  <Routes>
+                    <Route path="/" element={< ItemsListContainer greeting="¡Bienvenido a la tienda de COMICS online BOOM!" />} />
+                    <Route path="/category/:idCat" element={< ItemsListContainer greeting="¡Bienvenido a la tienda de COMICS online BOOM!" />} />
+                    <Route path="/item/:id" element={<ItemDetailContainer mensaje="Detalles del producto" initial="1" stock="10" />} />
+                    <Route path="/cart" element={<Cart />} />
+                  </Routes>
+                </>
+            }
           </div>
         </CartProvider>
       </BrowserRouter>

@@ -17,7 +17,6 @@ const NavBar = () => {
             <div className="navbar-nav">
               <Link className="nav-link" to={`/category/comic-marvel`}>MARVEL COMICS</Link>
               <Link className="nav-link" to={`/category/comic-dc`}>DC COMICS</Link>
-              <Link className="nav-link" to="">NOSOTROS</Link>
               <Link to="/cart" style={{ textDecoration: 'transparent', color: 'white' }}><CartWidget /></Link>
             </div>
           </div>
